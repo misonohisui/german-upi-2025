@@ -28,7 +28,7 @@
       min-height: 100vh;
       color: white;
       overflow-x: hidden;
-      line-height: 1.6;
+      line-height: 1.5; /* Global line spacing 1.5 */
     }
     
     body::before {
@@ -63,6 +63,7 @@
       padding: 0.5rem 1rem;
       border-radius: 50px;
       transition: all 0.3s ease;
+      line-height: 1.5; /* Navbar links spacing */
     }
     .navbar a:hover {
       background: var(--glass);
@@ -87,12 +88,14 @@
       font-size: clamp(2.5rem, 6vw, 4rem);
       margin-bottom: 1rem;
       text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      line-height: 1.3; /* Slightly tighter for headings */
     }
     .about-hero p {
       font-size: 1.2rem;
       max-width: 600px;
       margin: 0 auto;
       opacity: 0.9;
+      line-height: 1.5;
     }
 
     /* === MAIN CONTENT === */
@@ -119,6 +122,7 @@
       font-size: 1.8rem;
       position: relative;
       display: inline-block;
+      line-height: 1.3;
     }
     .about-section h2::after {
       content: '';
@@ -128,6 +132,15 @@
       width: 50px;
       height: 3px;
       background: var(--blue);
+    }
+
+    /* Text content with 1.5 spacing */
+    .about-section p,
+    .about-section li,
+    .timeline-item p,
+    .quote,
+    .dosen-card p {
+      line-height: 1.5;
     }
 
     /* PROFILE SECTION */
@@ -176,33 +189,6 @@
       margin-bottom: 0.5rem;
     }
 
-    /* DOSEN GRID */
-    .dosen-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .dosen-card {
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 1.5rem;
-      text-align: center;
-      transition: all 0.3s;
-    }
-    .dosen-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255,255,255,0.2);
-    }
-    .dosen-img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 1rem;
-      border: 3px solid rgba(255,255,255,0.3);
-    }
-
     /* QUOTE SECTION */
     .quote {
       font-style: italic;
@@ -210,6 +196,7 @@
       border-left: 4px solid var(--yellow);
       background: rgba(0,33,134,0.2);
       margin: 2rem 0;
+      line-height: 1.5;
     }
     .quote-author {
       text-align: right;
@@ -225,6 +212,7 @@
       text-align: center;
       padding: 2rem;
       margin-top: 4rem;
+      line-height: 1.5;
     }
     .social-icons {
       display: flex;
@@ -251,17 +239,10 @@
       height: 40px;
     }
 
-
     /* === RESPONSIVE === */
     @media (max-width: 768px) {
       .about-hero {
         padding: 6rem 1rem;
-      }
-      .dosen-grid {
-        grid-template-columns: 1fr;
-      }
-      .timeline {
-        padding-left: 20px;
       }
       .navbar {
         gap: 1rem;
@@ -269,6 +250,80 @@
       }
       .navbar a {
         font-size: 1rem;
+      }
+    }
+
+    /* === MOBILE PORTRAIT OPTIMIZATION === */
+    @media (max-width: 480px) and (orientation: portrait) {
+      .about-hero p {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+      }
+    }
+
+    /* === VERY SMALL SCREENS (<400px) === */
+        @media (max-width: 400px) {
+        .about-hero {
+            padding: 5rem 1rem;
+        }
+        
+        .about-hero h1 {
+            font-size: 2rem;
+        }
+        
+        .about-hero p {
+            font-size: 0.9rem;
+        }
+        
+        .about-section {
+            padding: 1.2rem;
+        }
+        
+        .about-section h2 {
+            font-size: 1.4rem;
+        }
+        
+        .about-section p, 
+        .about-section li {
+            font-size: 0.82rem;
+        }
+        
+        .quote {
+            padding: 1.2rem;
+            font-size: 0.85rem;
+        }
+        
+        footer p {
+            font-size: 0.9rem;
+        }
+        }
+
+    /* === VERY SMALL SCREENS (<365px) === */
+    @media (max-width: 365px) {
+      .about-hero p {
+        font-size: 0.95rem;
+      }
+      
+      .about-section p, 
+      .about-section li,
+      .timeline-item p {
+        font-size: 0.85rem;
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+      }
+      
+      .quote {
+        font-size: 0.9rem;
+        padding: 1.5rem;
+      }
+      
+      .about-section {
+        padding: 1.5rem;
+      }
+      
+      .about-section h2 {
+        font-size: 1.5rem;
       }
     }
   </style>
@@ -292,7 +347,7 @@
     <!-- PROFIL PRODI -->
     <div class="about-section">
       <h2>Profil Program Studi</h2>
-      <p>Program Studi Pendidikan Bahasa Jerman FPBS UPI, didirikan tahun1957, saat ini memegang predikat akreditasi "unggul" dari BAN PT dan predikat "unconditional" dari badan akreditasi internasional, AQAS. Profil lulusan Prodi ini adalah menjadi pendidik bahasa Jerman yang memiliki kompetensi pendidik, peneliti, dan pengembang ekonomi kreatif kebahasajermanan yang berkarakter dan inovatif. Lulusan prodi didominasi oleh profesi pendidik Bahasa Jerman di SMA/SMK. Selain itu, para lulusan juga dapat berkarir di bidang lain, seperti bidang penerjemahan dan sektor pariwisata.</p>
+      <p>Program Studi Pendidikan Bahasa Jerman FPBS UPI, didirikan tahun 1957, saat ini memegang predikat akreditasi "unggul" dari BAN PT dan predikat "unconditional" dari badan akreditasi internasional, AQAS. Profil lulusan Prodi ini adalah menjadi pendidik bahasa Jerman yang memiliki kompetensi pendidik, peneliti, dan pengembang ekonomi kreatif kebahasajermanan yang berkarakter dan inovatif. Lulusan prodi didominasi oleh profesi pendidik Bahasa Jerman di SMA/SMK. Selain itu, para lulusan juga dapat berkarir di bidang lain, seperti bidang penerjemahan dan sektor pariwisata.</p>
     </div>
 
     <!-- ANGKATAN 2025 -->
@@ -306,85 +361,10 @@
         (Siapa yang belum pernah melakukan kesalahan, berarti belum pernah mencoba sesuatu yang baru)
         <div class="quote-author">- Albert Einstein</div>
       </div>
-<!-- <h3 style="margin-top: 2rem;">Perjalanan Kami</h3>
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="timeline-year">Agustus 2023</span>
-          <p>Penerimaan mahasiswa baru angkatan 2025 melalui jalur SNBP, SNBT, dan Mandiri.</p>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">September 2023</span>
-          <p>Pengenalan kehidupan kampus (PKKMB) dan pembentukan struktur organisasi angkatan.</p>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">Oktober 2023</span>
-          <p>Pelaksanaan kegiatan "Deutschtag" pertama, presentasi budaya Jerman.</p>
-        </div>
-      </div>
-    </div>-->
-      
-
-    <!-- DOSEN
-     
-    
-    <div class="about-section">
-      <h2>Dosen Pembimbing</h2>
-      <p>Berikut beberapa dosen pengajar di Program Studi Pendidikan Bahasa Jerman UPI:</p>
-      
-      <div class="dosen-grid">
-        <div class="dosen-card">
-          <img src="assets/images/dosen1.jpg" alt="Dr. Aulia Rahman" class="dosen-img">
-          <h3>Dr. Aulia Rahman</h3>
-          <p>Ketua Program Studi</p>
-          <p>Spesialisasi: Linguistik Jerman</p>
-        </div>
-        <div class="dosen-card">
-          <img src="assets/images/dosen2.jpg" alt="Prof. Sarah Meyer" class="dosen-img">
-          <h3>Prof. Sarah Meyer</h3>
-          <p>Dosen Tamu dari Jerman</p>
-          <p>Spesialisasi: Kulturwissenschaft</p>
-        </div>
-        <div class="dosen-card">
-          <img src="assets/images/dosen3.jpg" alt="Dr. Bambang Setiawan" class="dosen-img">
-          <h3>Dr. Bambang Setiawan</h3>
-          <p>Koordinator Praktikum</p>
-          <p>Spesialisasi: Didaktik Deutsch</p>
-        </div>
-      </div>
-    </div>-->
-    
-
-    <!-- PRESTASI 
-     
-    <div class="about-section">
-      <h2>Prestasi Angkatan</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
-        <div style="background: rgba(0,33,134,0.3); padding: 1.5rem; border-radius: 10px;">
-          <h3 style="color: var(--yellow); margin-bottom: 0.5rem;">Juara 1 Deutsch Wettbewerb 2024</h3>
-          <p>Kompetisi bahasa Jerman tingkat nasional</p>
-        </div>
-        <div style="background: rgba(0,33,134,0.3); padding: 1.5rem; border-radius: 10px;">
-          <h3 style="color: var(--yellow); margin-bottom: 0.5rem;">Best Performance Kulturfest 2023</h3>
-          <p>Penampilan terbaik dalam festival budaya Jerman</p>
-        </div>
-      </div>
     </div>
-  </div>-->
-    </div>
+  </div>
 
-  <!-- FOOTER 
-   
-  <footer>
-    <p>© 2025 Prodi Pendidikan Bahasa Jerman Angkatan 2025 | Universitas Pendidikan Indonesia</p>
-    <div class="social-icons">
-      <a href="https://instagram.com/prodi.jerman.upi" target="_blank">
-        <img src="assets\images\icons\social.png" alt="Instagram">
-      </a>
-    </div>
-    <p style="opacity: 0.8; margin-top: 1rem;">prodi.jerman@upi.edu</p>
-  </footer>
--->
-  
+
   <script>
     // Efek scroll navbar
     window.addEventListener('scroll', () => {
