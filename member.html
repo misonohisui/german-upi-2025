@@ -465,7 +465,41 @@
       }
     }
 
-    @media (max-width: 345px) {
+    @media (max-width: 408px) {
+    .member-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      padding: 0.5rem;
+    }
+
+    .member-card {
+      width: 150px;
+      padding: 1rem;
+    }
+
+    .member-photo {
+      width: 90px;
+      height: 90px;
+    }
+
+    .member-name {
+      font-size: 0.9rem;
+    }
+
+    .member-ig a {
+      font-size: 0.75rem;
+      gap: 0.25rem;
+    }
+
+    .member-ig img {
+      width: 16px;
+      height: 16px;
+    }
+
+
+    }
+
+    @media (max-width: 380px) {
       .about-hero {
         padding: 4rem 0.8rem;
       }
@@ -515,6 +549,35 @@
         font-size: 0.85rem;
         padding: 0.4rem 0.8rem;
       }
+      .member-grid {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 1rem;
+      padding: 0.5rem;
+    }
+
+    .member-card {
+      width: 120px;
+      padding: 0.8rem;
+    }
+
+    .member-photo {
+      width: 70px;
+      height: 70px;
+    }
+
+    .member-name {
+      font-size: 0.8rem;
+    }
+
+    .member-ig a {
+      font-size: 0.7rem;
+      gap: 0.2rem;
+    }
+
+    .member-ig img {
+      width: 14px;
+      height: 14px;
+    }
     }
 </style>
 </head>
