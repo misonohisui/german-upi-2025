@@ -84,12 +84,50 @@
       text-align: center;
       padding: 4rem 2rem 3rem;
       position: relative;
+      overflow: hidden;
     }
     
     .about-hero {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                  url('assets/images/kabinetjerman.jpg') center/cover;
+      position: relative;
       padding: 8rem 1rem;
+    }
+
+    /* Background images container */
+    .hero-bg-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      z-index: -1;
+    }
+    
+    .bg1 {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                 url('assets/images/kabinetjerman.jpg') center/cover;
+      opacity: 1;
+    }
+    
+    .bg2 {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                 url('assets/images/BerlinSpeech.jpg') center/cover;
+    }
+    
+    .bg3 {
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                 url('assets/images/ZirkusKrone.jpg') center/cover;
     }
     
     .hero h1, .about-hero h1 {
@@ -380,7 +418,6 @@
       }
     }
 
-    /* Mobile Portrait Optimization */
     @media (max-width: 480px) and (orientation: portrait) {
       .hero p br, .about-hero p br {
         display: block;
@@ -400,7 +437,6 @@
       }
     }
 
-    /* Very Small Screens */
     @media (max-width: 400px) {
       .about-hero {
         padding: 5rem 1rem;
@@ -516,7 +552,7 @@
         padding: 0.4rem 0.8rem;
       }
     }
-</style>
+  </style>
 </head>
 <body>
   <!-- NAVBAR -->
@@ -528,6 +564,13 @@
 
   <!-- HERO SECTION -->
   <section class="about-hero">
+    <!-- Background images container -->
+    <div class="hero-bg-container">
+      <div class="hero-bg bg1"></div>
+      <div class="hero-bg bg2"></div>
+      <div class="hero-bg bg3"></div>
+    </div>
+    
     <h1>TENTANG KAMI</h1>
     <p>Prodi Pendidikan Bahasa Jerman<br>Universitas Pendidikan Indonesia<br>Angkatan 2025</p>
   </section>
@@ -553,7 +596,6 @@
       </div>
     </div>
   </div>
-
 
   <script>
     // Efek scroll navbar
@@ -583,6 +625,24 @@
       item.style.transform = 'translateX(-20px)';
       item.style.transition = 'all 0.6s ease-out';
       observer.observe(item);
+    });
+
+    // Background transition effect for 3 images
+    document.addEventListener('DOMContentLoaded', function() {
+      const backgrounds = document.querySelectorAll('.hero-bg');
+      let current = 0;
+      
+      // Change background every 5 seconds
+      setInterval(function() {
+        // Hide current background
+        backgrounds[current].style.opacity = '0';
+        
+        // Move to next background (loop back to 0 after last image)
+        current = (current + 1) % backgrounds.length;
+        
+        // Show new background
+        backgrounds[current].style.opacity = '1';
+      }, 5000);
     });
   </script>
 </body>
